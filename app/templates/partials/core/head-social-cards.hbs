@@ -1,0 +1,49 @@
+<meta name="description" content="{{ page-description }}">
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{{ page-url }}" />
+<meta property="og:title" content="{{ page-title }}" />
+<meta property="og:description" content="{{ page-description }}" />
+<meta property="og:image" content="{{ page-image }}" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="{{ page-image-alt }}" />
+
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="">
+<meta name="twitter:creator" content="">
+<meta name="twitter:title" content="{{ page-title }}">
+<meta name="twitter:description" content="{{ page-description }}">
+<meta name="twitter:image" content="{{ page-image }}">
+
+<link rel="canonical" href="{{ page-url }}">
+
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "WebPage",
+      "name": "{{ page-title }}",
+      "description": "{{ page-description }}",
+      "publisher": {
+        "@type": "Organization",
+        "name": "SkazMasters",
+        "url": "https://skazmasters.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": [
+            "https://skazmasters.com/logo.png"
+          ]
+        }
+      },
+      "datePublished": "{{ page-published-date }}",
+      "dateModified": "{{ page-modified-date }}",
+      "image": [
+        "{{ page-image-16-9 }}"
+      ],
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ page-url }}"
+      }
+    }
+</script>

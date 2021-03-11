@@ -1,0 +1,14 @@
+/******************************************************/
+/******************** Animations **********************/
+/******************************************************/
+
+@mixin animation-loop($from: 1, $to: 15, $tick: 1, $ticking: .04) {
+  $accum: $tick;
+
+  @for $i from $from through $to {
+    &:nth-child(#{$i}) {
+      @content($accum);
+      $accum: $accum + $ticking;
+    }
+  }
+}

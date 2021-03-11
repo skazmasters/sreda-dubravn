@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>{{ page-title }}</title>
+
+  {{#if theme-color}}{{>core/theme-color color=theme-color}}{{/if}}
+
+  {{>core/favicon}}
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="../css/main.min.css?v={{cache}}">
+
+  {{#if social-cards}}{{>core/head-social-cards}}{{/if}}
+</head>
+
+<body class="page{{#if page-mod}} {{page-mod}}{{/if}}{{#if page-class}} {{page-class}}{{/if}}{{#if theme-color}} theme-{{theme-color}}{{/if}}">
+<div class="preloader js-preloader"></div>
+<div class="page__inner">
