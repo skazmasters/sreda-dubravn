@@ -27,4 +27,12 @@
       }
     }
   }
+
+  &__header + * {
+    margin-top: 60px;
+  }
+
+  &__content {
+    //margin-top: 60px;
+  }
 }

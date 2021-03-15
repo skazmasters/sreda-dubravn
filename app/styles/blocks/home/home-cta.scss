@@ -1,10 +1,17 @@
 .home-cta {
-  position: relative;
   padding: 30px 0 15px;
 
   &__content {
+    position: relative;
     display: flex;
     align-self: center;
+  }
+
+  &__header {
+    .cta-link {
+      max-width: 250px;
+      width: 100%;
+    }
   }
 
   &__action {
@@ -29,8 +36,12 @@
 
   &__bg {
     position: absolute;
-    top: 25px;
-    right: 115px;
+    top: -15px;
+    right: -145px;
+
+    @media (max-width: 1700px) {
+      right: 0;
+    }
 
     svg {
       min-width: 165px;

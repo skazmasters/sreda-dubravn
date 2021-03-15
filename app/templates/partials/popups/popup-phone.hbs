@@ -1,0 +1,38 @@
+{{#> popups/_base title=title id=id}}
+  <div class="popup-call">
+    <div class="popup-call__success" style="display: {{#if success}}block{{else}}none{{/if}}">
+      <span class="popup-call__title">Звонок заказа</span>
+      <p class="popup-call__text">Обычно мы перезваниваем в течени 10 минут</p>
+      <div class="popup-call__submit">
+        <button class="btn btn--large btn--primary js-popup-close">Закрыть</button>
+      </div>
+    </div>
+    <div class="popup-call__failure" style="display: {{#if failure}}block{{else}}none{{/if}}">
+      <span class="popup-call__title">Ошибка отправки</span>
+      <p class="popup-call__text">К сожалению ваша заявка не была отправлена.<br/>
+        Но вы можете попробовать отправить еще раз,
+        данные сохранились в форме.</p>
+      <div class="popup-call__submit">
+        <button class="btn btn--large btn--primary">Вернуться к заявке</button>
+      </div>
+    </div>
+    <div class="popup-call__normal"
+         style="display: {{#if failure}}none{{else}}{{#if success}}none{{else}}block{{/if}}{{/if}}">
+      <div class="popup-call__form">
+        <span class="popup-call__title">Заказ звонка</span>
+        <div class="popup-call__input">
+          {{> ui/input label="Фамилия и имя*" placeholder="Фамилия и имя*"}}
+        </div>
+        <div class="popup-call__input">
+          {{> ui/input label="Номер телефона*" placeholder="Номер телефона*"}}
+        </div>
+        <div class="popup-call__input">
+          {{> ui/input label="Комментарий*" placeholder="Комментарий*"}}
+        </div>
+      </div>
+      <div class="popup-call__submit">
+        <button class="btn btn--large btn--primary btn--w100">Отправить заявку</button>
+      </div>
+    </div>
+  </div>
+{{/ popups/_base}}
