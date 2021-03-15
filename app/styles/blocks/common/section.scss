@@ -28,6 +28,14 @@
     }
   }
 
+  &__text {
+    margin-top: 25px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 30px;
+  }
+
   &__header + * {
     margin-top: 60px;
   }
