@@ -1,0 +1,24 @@
+.cta-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-right: 55px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 40px;
+  color: #FAFAF4;
+
+  &:hover {
+    .icon-next i {
+      width: 30px;
+    }
+  }
+
+  .icon-next {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+  }
+}

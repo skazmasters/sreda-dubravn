@@ -1,0 +1,30 @@
+.icon-next {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 8px;
+    border-radius: 10px;
+    transform: rotate(45deg);
+    transform-origin: 81% 50%;
+    background-color: currentColor;
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  i {
+    display: block;
+    height: 1px;
+    width: 50px;
+    border-radius: 10px;
+    background-color: currentColor;
+    @include transition;
+  }
+}

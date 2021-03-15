@@ -1,0 +1,40 @@
+.home-cta {
+  position: relative;
+  padding: 30px 0 15px;
+
+  &__content {
+    display: flex;
+    align-self: center;
+  }
+
+  &__action {
+    margin-left: 230px;
+  }
+
+  &__button {
+    display: inline-block;
+    padding: 16px 90px;
+    color: #FDFBF4;
+    font-size: 36px;
+    line-height: 42px;
+    background: $color-primary;
+    border: 1px solid #EBEBEB;
+    border-radius: 10px;
+    @include transition;
+
+    &:hover {
+      background: $color-primary-hover;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    top: 25px;
+    right: 115px;
+
+    svg {
+      min-width: 165px;
+      height: auto;
+    }
+  }
+}

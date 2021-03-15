@@ -1,7 +1,6 @@
 .home-intro {
   display: grid;
   grid-template-columns: auto 1fr;
-  //grid-template-rows: 1fr auto;
   grid-template-areas: 'img list' 'img title';
   grid-gap: 70px 50px;
   align-items: center;
@@ -46,5 +45,9 @@
 
   &__image {
     grid-area: img;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: hidden;
   }
 }
