@@ -1,5 +1,4 @@
 .home-benefits {
-
   &__list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(370px, 1fr));
@@ -44,5 +43,9 @@
       height: 100%;
       object-fit: contain;
     }
+  }
+
+  .section__content {
+    margin-top: 120px;
   }
 }

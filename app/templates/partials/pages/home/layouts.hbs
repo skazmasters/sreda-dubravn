@@ -1,0 +1,32 @@
+<div class="section">
+  <section class="home-layouts">
+    <h2 class="home-layouts__title">Планировки</h2>
+    <div class="home-layouts__bg">
+      {{>components/image img="home/layouts/bg" ext="jpg"}}
+    </div>
+
+    <div class="home-layouts__content">
+      <div class="gallery-section js-slider-gallery">
+        <div class="container">
+          <div class="gallery-section__slider swiper-container js-slider-gallery__slider">
+            <div class="gallery-section__grid swiper-wrapper js-slider-gallery__gallery">
+              {{>widgets/gallery-item img="1" data-size="1240x697" mode="gallery-section__item swiper-slide"}}
+              {{>widgets/gallery-item img="2" data-size="536x697" mode="gallery-section__item swiper-slide"}}
+              {{>widgets/gallery-item img="2" data-size="696x697" mode="gallery-section__item swiper-slide"}}
+              {{>widgets/gallery-item img="1" data-size="1240x697" mode="gallery-section__item swiper-slide"}}
+              {{>widgets/gallery-item img="2" data-size="536x697" mode="gallery-section__item swiper-slide"}}
+              {{>widgets/gallery-item img="2" data-size="536x697" mode="gallery-section__item swiper-slide"}}
+              {{>widgets/gallery-item img="2" data-size="536x697" mode="gallery-section__item swiper-slide"}}
+              {{>widgets/gallery-item img="1" data-size="1240x697" mode="gallery-section__item swiper-slide"}}
+              {{>widgets/gallery-item img="1" data-size="696x697" mode="gallery-section__item swiper-slide"}}
+              {{>widgets/gallery-item img="2" data-size="536x697" mode="gallery-section__item swiper-slide"}}
+            </div>
+          </div>
+          <div class="gallery-section__nav">
+            {{>components/slider-nav nav-mode="center" class="js-slider-gallery"}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

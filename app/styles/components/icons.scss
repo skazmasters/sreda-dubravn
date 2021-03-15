@@ -1,0 +1,63 @@
+.arrow {
+  .icon {
+    width: 22px;
+    height: 16px;
+  }
+}
+
+.arrow-right {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.arrow-left {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+
+  .icon {
+    transform: rotate(180deg) translateY(2%);
+  }
+}
+
+.icon-close {
+  position: relative;
+  z-index: z(default) + 1;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  margin: -5px;
+  border-radius: 4px;
+  cursor: pointer;
+  @include transition(all, 300ms, linear);
+
+  &:hover {
+    &::after,
+    &::before {
+      background-color: $color-text-dark;
+    }
+  }
+
+  &::after,
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: '';
+    display: block;
+    width: #{diagonal(10)}px;
+    height: 1.5px;
+    border-radius: 5px;
+    background-color: $color-text-dark;
+    @include transition;
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+}

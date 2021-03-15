@@ -1,6 +1,8 @@
 @import "~normalize-scss/sass/normalize/import-now";
-@import '~swiper/swiper';
-@import '~js-datepicker/src/datepicker';
+@import '~swiper/swiper-bundle';
+@import '~photoswipe/dist/photoswipe';
 
-@import "qs-datepicker";
-@import "ps";
+//@import '~js-datepicker/src/datepicker';
+
+//@import "qs-datepicker";
+//@import "ps";

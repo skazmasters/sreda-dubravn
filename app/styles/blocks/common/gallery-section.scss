@@ -1,0 +1,43 @@
+.gallery-section {
+  max-width: 100vw;
+  overflow: hidden;
+
+  &__slider {
+    display: flex;
+    margin-right: calc(-1 * (100vw - 1280px) / 2);
+
+    @media (max-width: 1320px) {
+      margin-right: -20px;
+    }
+
+    @include media(mobile) {
+      margin-right: 0;
+    }
+  }
+
+  &__grid {
+    height: 350px;
+
+    @include media(tabletSmall) {
+      height: 270px;
+    }
+
+    @include media(mobile) {
+      height: 300px;
+    }
+  }
+
+  &__item {
+    @include media(mobile, up) {
+      width: auto!important;
+    }
+
+    @include media(mobile) {
+      width: auto;
+    }
+  }
+
+  &__nav {
+    margin-top: 25px;
+  }
+}

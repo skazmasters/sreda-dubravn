@@ -1,123 +1,108 @@
-const MOBILE_WIDTH = 767;
-const TABLET_WIDTH = 1023;
-const LAPTOP_WIDTH = 1279;
-
-const Layout = {
-  _listeners: [],
-  _documentClickListeners: [],
-
+const LayoutConfig = {
+  mobile_width: 767,
+  tablet_width: 1023,
+  laptop_width: 1279,
+  listeners: [],
+  documentClickListeners: [],
   is_mobile: 0,
   is_tablet: 0,
   is_laptop: 0,
+}
 
-  isMobileLayout: function() {
-    return $(window).width() <= MOBILE_WIDTH;
-  },
+class Layout {
+  constructor() {
+    this.resizeEvents = this.resizeEvents.bind(this);
 
-  isTabletLayout: function() {
-    return $(window).width() <= TABLET_WIDTH;
-  },
+    this.events();
+  }
 
-  isBigTabletLayout: function() {
-    return $(window).width() > TABLET_WIDTH && $(window).width() <= LAPTOP_WIDTH;
-  },
+  events() {
+    LayoutConfig.is_mobile = Layout.isMobileLayout();
 
-  isLaptopLayout: function() {
-    return $(window).width() <= LAPTOP_WIDTH;
-  },
-
-  isDesktopLayout: function() {
-    return this.isMobileLayout() === false
-      && this.isTabletLayout() === false
-      && this.isLaptopLayout() === false;
-  },
-
-  addListener: function(func) {
-    this._listeners.push(func);
-  },
-
-  _fireChangeMode: function() {
-    const that = this;
-
-    setTimeout(function() {
-      for (let i = 0; i < that._listeners.length; i++) {
-        that._listeners[i](that.is_mobile);
-      }
-    }, 0);
-  },
-
-  addDocumentClickHandler: function(handler) {
-    this._documentClickListeners.push(handler);
-  },
-
-  fireDocumentClick: function(e) {
-    this._documentClickListeners.forEach(function(handler) {
-      handler(e);
-    });
-  },
-
-  isTouchDevice: function() {
-    return 'ontouchstart' in document.documentElement;
-  },
-
-  init: function() {
-    this.is_mobile = this.isMobileLayout();
-
-    $(window).on('resize', function() {
-      const isMobile = Layout.isMobileLayout();
-      const isTablet = Layout.isTabletLayout();
-      const isLaptop = Layout.isLaptopLayout();
-
-      if (isMobile !== Layout.is_mobile) {
-        Layout.is_mobile = isMobile;
-        Layout._fireChangeMode();
-      } else if (isTablet !== Layout.is_tablet) {
-        Layout.is_tablet = isTablet;
-        Layout._fireChangeMode();
-      } else if (isLaptop !== Layout.is_laptop) {
-        Layout.is_laptop = isLaptop;
-        Layout._fireChangeMode();
-      }
-    });
+    onResize(this.resizeEvents);
 
     let documentClick = false;
-    $(document).on('touchstart', function() {
-      documentClick = true;
+
+    document.addEventListener('touchstart', () => documentClick = true);
+    document.addEventListener('touchmove', () => documentClick = false);
+    document.addEventListener('click touchend', e => {
+      if (e.type === 'click') documentClick = true;
+      if (documentClick) Layout.fireDocumentClick(e);
     });
-    $(document).on('touchmove', function() {
-      documentClick = false;
-    });
-    $(document).on('click touchend', function(e) {
-      if (e.type === 'click') {
-        documentClick = true;
+  }
+
+  resizeEvents() {
+    const isMobile = Layout.isMobileLayout();
+    const isTablet = Layout.isTabletLayout();
+    const isLaptop = Layout.isLaptopLayout();
+
+    if (isMobile !== LayoutConfig.is_mobile) {
+      LayoutConfig.is_mobile = isMobile;
+      Layout.fireChangeMode();
+    } else if (isTablet !== LayoutConfig.is_tablet) {
+      LayoutConfig.is_tablet = isTablet;
+      Layout.fireChangeMode();
+    } else if (isLaptop !== LayoutConfig.is_laptop) {
+      LayoutConfig.is_laptop = isLaptop;
+      Layout.fireChangeMode();
+    }
+  }
+
+  static addListener(func) {
+    LayoutConfig.listeners.push(func);
+  }
+
+  static fireChangeMode() {
+    setTimeout(() => {
+      for (let i = 0; i < LayoutConfig.listeners.length; i++) {
+        LayoutConfig.listeners[i](LayoutConfig.is_mobile);
       }
-      if (documentClick) {
-        Layout.fireDocumentClick(e);
-      }
-    });
-  },
-};
+    }, 0);
+  }
+
+  static addDocumentClickHandler(handler) {
+    LayoutConfig.documentClickListeners.push(handler);
+  }
+
+  static fireDocumentClick(e) {
+    LayoutConfig.documentClickListeners.forEach(handler => handler(e));
+  }
+
+  static isTouchDevice() {
+    return 'ontouchstart' in document.documentElement;
+  }
+
+  static isMobileLayout() {
+    return window.innerWidth <= LayoutConfig.mobile_width;
+  }
+
+  static isTabletLayout() {
+    return window.innerWidth <= LayoutConfig.tablet_width;
+  }
+
+  static isBigTabletLayout() {
+    return window.innerWidth > LayoutConfig.tablet_width && window.innerWidth <= LayoutConfig.laptop_width;
+  }
+
+  static isLaptopLayout() {
+    return window.innerWidth <= LayoutConfig.laptop_width;
+  }
+
+  static isDesktopLayout() {
+    return !Layout.isMobileLayout() && !Layout.isTabletLayout() && !Layout.isLaptopLayout();
+  }
+
+  static init() {
+    return new Layout();
+  }
+}
 
 Layout.init();
 
 window.Layout = Layout;
 
-window.isMobileLayout = function() {
-  return Layout.isMobileLayout();
-};
-
-window.isTabletLayout = function() {
-  return Layout.isTabletLayout();
-};
-
-window.isBigTabletLayout = function() {
-  return Layout.isBigTabletLayout();
-};
-
-window.isLaptopLayout = function() {
-  return Layout.isLaptopLayout();
-};
-
-window.isDesktopLayout = function() {
-  return Layout.isDesktopLayout();
-};
+window.isMobileLayout = () => Layout.isMobileLayout();
+window.isTabletLayout = () => Layout.isTabletLayout();
+window.isBigTabletLayout = () => Layout.isBigTabletLayout();
+window.isLaptopLayout = () => Layout.isLaptopLayout();
+window.isDesktopLayout = () => Layout.isDesktopLayout();

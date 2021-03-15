@@ -1,0 +1,28 @@
+.home-layouts {
+  position: relative;
+  padding: 30px 0 130px;
+
+  &__title {
+    font-weight: normal;
+    font-size: 68px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #FFFBFB;
+  }
+
+  &__content {
+    margin-top: 175px;
+  }
+
+  &__bg {
+    @include fill;
+    z-index: -1;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

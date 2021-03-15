@@ -1,0 +1,37 @@
+.gallery-item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  @include media(mobile) {
+    justify-content: center;
+  }
+
+  &__link {
+    flex: 0 1 auto;
+    height: 100%;
+
+    &::after {
+      content: '';
+      @include fill;
+      opacity: 0;
+      background: rgba(0, 0, 0, 0.2);
+      transition: opacity 350ms ease;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: auto;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__caption {
+    @extend .visually-hidden;
+  }
+}
