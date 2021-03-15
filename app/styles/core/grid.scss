@@ -25,3 +25,8 @@ html {
     padding-right: $mobileGutter;
   }
 }
+
+.container-md {
+  @extend .container;
+  width: 1360px + $desktopGutter * 2;
+}

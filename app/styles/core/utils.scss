@@ -71,3 +71,12 @@
     }
   }
 }
+
+.bg-primary {
+  background-color: $color-primary;
+}
+
+.bg-secondary {
+  color: $color-white;
+  background-color: $color-secondary;
+}
