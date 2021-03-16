@@ -17,6 +17,7 @@ import './src/widgets/popups';
 import './src/widgets/video-link';
 import './src/widgets/gallery-slider';
 import './src/widgets/base-slider';
+import './src/widgets/ymap';
 
 import './src/app';
 

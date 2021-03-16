@@ -1,7 +1,6 @@
 class GallerySlider extends Widget {
   constructor(node) {
     super(node, 'js-slider-gallery');
-    console.log('kkkk');
 
     this.$slider = this.queryElement('.slider');
     this.$gallery = this.queryElement('.gallery');

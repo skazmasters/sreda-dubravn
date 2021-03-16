@@ -1,12 +1,51 @@
 </main>
 
-<footer class="footer page__footer bg-secondary">
+<footer class="footer page__footer">
   <div class="container-md">
-
-    <div class="">
-      <button class="home-cta__button js-popup-open" data-popup="popup-phone" type="button">Позвонить</button>
+    <div class="footer__grid">
+      <div class="footer__grid-left">
+        <ul class="footer__socials">
+          <li class="footer__socials-item">
+            <a href="#">
+              {{> ui/svg name="vk"}}
+            </a>
+          </li>
+          <li class="footer__socials-item">
+            <a href="#">
+              {{> ui/svg name="fb"}}
+            </a>
+          </li>
+          <li class="footer__socials-item">
+            <a href="#">
+              {{> ui/svg name="inst"}}
+            </a>
+          </li>
+          <li class="footer__socials-item">
+            <a href="#">
+              {{> ui/svg name="yt"}}
+            </a>
+          </li>
+        </ul>
+        <div class="footer__copy">
+          &#169; ГК “Среда-Инвест”, 2021
+        </div>
+      </div>
+      <div class="footer__grid-right">
+        <div class="footer__title">Мы всегда на связи!</div>
+        <div class="footer__cta">
+          <button class="home-cta__button js-popup-open" data-popup="popup-phone" type="button">Позвонить</button>
+        </div>
+        <div class="footer__phone">
+          <a href="tel:+79309093380" class="footer__phone-link">
+            <span class="material-icons">call</span>
+            8-930-909-33-80
+          </a>
+        </div>
+      </div>
+      <div class="footer__bg">
+        {{>components/image img="footer/bg" ext="jpg"}}
+      </div>
     </div>
-
   </div>
 </footer>
 
