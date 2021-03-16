@@ -1,8 +1,41 @@
 <div class="section home-contacts">
-  <div class="section__header">
-    <div class="container-md">
-      <h2 class="section__title">Контакты:</h2>
-      <p class="section__text">Запишитесь на просмотр помещения:</p>
+  <div class="container-md">
+    <div class="home-contacts__grid">
+      <div class="home-contacts__content">
+        <h2 class="section__title">Контакты:</h2>
+        <p class="section__text">Запишитесь на просмотр помещения:</p>
+
+        <div class="home-contacts__address">
+          <div class="contacts-address">
+            <div class="contacts-address__item">
+              <span class="material-icons-outlined">place</span> 
+              Москва, ул. Дубравная, вл 33
+            </div>
+            <div class="contacts-address__item">
+              <span class="material-icons-outlined">schedule</span>
+              с 9:00-21:00
+            </div>
+            <a href="tel:+79309093380" class="contacts-address__item">
+              <span class="material-icons-outlined">call</span>
+              8-930-909-33-80
+            </a>
+            <a href="mailto:m.dubravnaya@gmail.com" class="contacts-address__item">
+              <span class="material-icons-outlined">email</span>
+              m.dubravnaya@gmail.com
+            </a>
+          </div>
+        </div>
+
+        <div class="home-contacts__action">
+          <button class="home-contacts__action-btn btn js-popup-open" data-popup="popup-phone" type="button">Записаться
+            <span class="icon-next"><i></i></span></button>
+        </div>
+      </div>
+      <div class="home-contacts__map js-map">
+        <div class="contacts-map">
+          {{>components/image img="home/slider/01" ext="jpg"}}
+        </div>
+      </div>
     </div>
   </div>
 </div>
