@@ -2,6 +2,11 @@
   &__navbar {
     display: flex;
     align-items: center;
+
+    @include media(tablet) {
+      padding-top: 25px;
+      flex-wrap: wrap;
+    }
   }
 
   &__logo {
@@ -10,6 +15,14 @@
     align-items: center;
     max-width: 58px;
     width: 100%;
+
+    @include media(tablet) {
+      flex: 0 0 60px;
+    }
+
+    @include media(mobile) {
+      flex: 0 0 40px;
+    }
 
     &::after {
       content: '';
@@ -30,12 +43,34 @@
     font-weight: bold;
     font-size: 24px;
     line-height: 28px;
+
+    @include media(tablet) {
+      flex: 1 1 calc(100% - 110px);
+    }
+
+    @include media(mobile) {
+      margin: 0 0 0 25px;
+      font-size: 18px;
+      line-height: initial;
+    }
   }
 
   &__contacts {
     display: flex;
     align-items: center;
     margin-left: auto;
+
+    @include media(tablet) {
+      flex: 1 1 50%;
+    }
+
+    @include media(mobile) {
+      flex-direction: column;
+      align-items: initial;
+      margin-left: 0;
+      margin-top: 20px;
+      padding-bottom: 20px;
+    }
   }
 
   &__contacts-item {
@@ -50,6 +85,11 @@
     padding: 26px 15px;
     font-size: 18px;
     line-height: 22px;
+
+    @include media(mobile) {
+      padding: 7.5px 0;
+      font-size: 14px;
+    }
 
     &:hover {
       opacity: 0.75;

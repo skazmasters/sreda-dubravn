@@ -3,8 +3,15 @@
 
   &__content {
     position: relative;
-    display: flex;
-    align-self: center;
+
+    @include media(tabletSmall, up) {
+      display: flex;
+      align-self: center;
+    }
+    @include media(tabletSmall) {
+      display: flex;
+      flex-direction: column;
+    }
   }
 
   &__header {
@@ -15,10 +22,24 @@
   }
 
   &__action {
-    margin-left: 230px;
+    @include media(tabletSmall, up) {
+      margin-left: 230px;
+    }
+
+    @include media(tabletSmall) {
+      margin-top: 25px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @include media(mobile) {
+      margin: 25px 0 0;
+    }
   }
 
   &__button {
+    position: relative;
+    z-index: 1;
     display: inline-block;
     padding: 16px 90px;
     color: #FDFBF4;
@@ -28,6 +49,13 @@
     border: 1px solid #EBEBEB;
     border-radius: 10px;
     @include transition;
+
+    @include media(mobile) {
+      font-size: 22px;
+      padding: 8px 10px;
+      width: 100%;
+      display: block;
+    }
 
     &:hover {
       background: $color-primary-hover;

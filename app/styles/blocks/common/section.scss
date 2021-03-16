@@ -1,6 +1,14 @@
 .section {
   padding: 90px 0;
 
+  @include media(tabletSmall) {
+    padding: 60px 0;
+  }
+
+  @include media(mobile) {
+    padding: 40px 0;
+  }
+
   &__title {
     position: relative;
     display: flex;
@@ -11,6 +19,10 @@
     font-weight: normal;
     font-size: 36px;
     line-height: 1;
+
+    @include media(mobile) {
+      font-size: 26px;
+    }
 
     &::before {
       position: absolute;
@@ -38,6 +50,10 @@
 
   &__header + * {
     margin-top: 60px;
+
+    @include media(mobile) {
+      margin-top: 40px;
+    }
   }
 
   &__content {
