@@ -27,6 +27,7 @@ import './src/widgets/popups';
 import './src/widgets/video-link';
 // import './src/widgets/gallery';
 import './src/widgets/gallery-slider';
+import './src/widgets/base-slider';
 
 // import './src/widgets/inputs/numeric-input';
 // import './src/widgets/inputs/masked-input';
