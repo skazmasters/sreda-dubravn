@@ -1,6 +1,6 @@
 .home-intro {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: minmax(0, 4fr) 2fr;
   grid-template-areas: 'img list' 'img title';
   grid-gap: 70px 50px;
   align-items: center;
