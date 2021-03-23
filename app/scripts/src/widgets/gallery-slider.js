@@ -52,14 +52,12 @@ class GallerySlider_Slider extends Widget {
     this.swiper = new Swiper(this.slider, {
       // loop: true,
       centeredSlides: true,
-      slidesPerView: 1,
+      slidesPerView: 'auto',
       spaceBetween: 10,
-      freeMode: true,
       breakpoints: {
         768: {
-          slidesPerView: 'auto',
           spaceBetween: 65,
-          centeredSlides: true,
+          freeMode: true,
         },
       },
     });

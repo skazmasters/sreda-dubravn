@@ -18,7 +18,7 @@
     }
 
     @include media(mobile) {
-      height: 300px;
+      height: 29vh;
     }
   }
 
@@ -28,7 +28,7 @@
     }
 
     @include media(mobile) {
-      width: auto;
+      width: auto!important;
     }
   }
 
