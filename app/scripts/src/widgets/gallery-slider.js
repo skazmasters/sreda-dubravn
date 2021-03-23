@@ -50,6 +50,7 @@ class GallerySlider_Slider extends Widget {
 
   initSwiper() {
     this.swiper = new Swiper(this.slider, {
+      // loop: true,
       centeredSlides: true,
       slidesPerView: 1,
       spaceBetween: 10,

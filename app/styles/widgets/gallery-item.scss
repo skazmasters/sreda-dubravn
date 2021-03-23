@@ -3,6 +3,11 @@
   align-items: center;
   height: 100%;
   margin: 0;
+  background: #CBCAB7;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.09);
+  border: 1px solid #CBCAB7;
+  border-radius: 10px;
+  overflow: hidden;
 
   @include media(mobile) {
     justify-content: center;
@@ -29,10 +34,28 @@
     display: block;
     width: auto;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 10px;
   }
 
   &__caption {
-    @extend .visually-hidden;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    padding: 10px;
+    background: #F4F3E9;
+    border-radius: 30px;
+  }
+
+  &__caption-text {
+    display: block;
+    min-width: 125px;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #0E201A;
   }
 }
