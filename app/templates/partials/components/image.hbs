@@ -1,5 +1,15 @@
-{{#ifCond fallback-ext 'svg'}}
-  <img src="../assets/images/{{img}}.{{fallback-ext}}" alt=''/>
+{{#ifCond fallback-ext 'webp'}}
+  <picture>
+    {{> core/picture-source ext="webp"}}
+
+    {{> core/picture-source ext="jpg"}}
+
+    <img class="lazy"
+         data-sizes="auto"
+         data-original="../assets/images/{{img}}.jpg"
+         src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+         alt="{{alt}}">
+  </picture>
 {{else}}
   <picture>
     {{#if img-tablet}}
