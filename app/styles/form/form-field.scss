@@ -1,6 +1,6 @@
 .form-field {
-  padding-bottom: 26px;
   position: relative;
+  padding-bottom: 26px;
   width: 100%;
 
   @include media(mobile){
@@ -34,5 +34,15 @@
       font-size: 12px;
       line-height: 150%;
     }
+  }
+
+  &__message {
+    position: absolute;
+    top: 100%;
+    display: block;
+    width: 100%;
+    margin-top: 4px;
+    font-size: 11px;
+    color: $color-primary;
   }
 }

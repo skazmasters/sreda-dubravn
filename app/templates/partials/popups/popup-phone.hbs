@@ -1,8 +1,12 @@
 {{#> popups/_base title=title id=id}}
-  <div class="popup-call">
+  <form class="popup-call js-form">
+    <input type="hidden" name="project_name" value="mk-vsnk.ru">
+    <input type="hidden" name="admin_email" value="gimmethenick@gmail.com">
+    <input type="hidden" name="form_subject" value="Заявка на регистрацию. mk-vsnk.ru">
+
     <div class="popup-call__success" style="display: {{#if success}}block{{else}}none{{/if}}">
       <span class="popup-call__title">Звонок заказа</span>
-      <p class="popup-call__text">Обычно мы перезваниваем в течени 10 минут</p>
+      <p class="popup-call__text">Обычно мы перезваниваем в течение 10 минут</p>
       <div class="popup-call__submit">
         <button class="btn btn--large btn--primary js-popup-close">Закрыть</button>
       </div>
@@ -16,23 +20,43 @@
         <button class="btn btn--large btn--primary">Вернуться к заявке</button>
       </div>
     </div>
-    <div class="popup-call__normal"
-         style="display: {{#if failure}}none{{else}}{{#if success}}none{{else}}block{{/if}}{{/if}}">
+    <div class="popup-call__normal" style="display: {{#if failure}}none{{else}}{{#if success}}none{{else}}block{{/if}}{{/if}}">
       <div class="popup-call__form">
         <span class="popup-call__title">Заказ звонка</span>
         <div class="popup-call__input">
-          {{> ui/input label="Фамилия и имя*" placeholder="Фамилия и имя*"}}
+          {{> ui/input
+            id="callName"
+            name="name"
+            label="Фамилия и имя*"
+            placeholder="Фамилия и имя*"
+            validation="isNotEmpty"
+          }}
         </div>
         <div class="popup-call__input">
-          {{> ui/input label="Номер телефона*" placeholder="Номер телефона*"}}
+          {{> ui/input
+            id="callPhone"
+            name="phone"
+            label="Номер телефона*"
+            type="tel"
+            mask="+{7} (000) 000-00-00"
+            placeholder="+7 (***) ***-**-**"
+            inputmode="tel"
+            validation="isNotEmpty"
+          }}
         </div>
         <div class="popup-call__input">
-          {{> ui/input label="Комментарий*" placeholder="Комментарий*"}}
+          {{> ui/textarea
+            id="callComments"
+            name="comments"
+            label="Комментарий*"
+            placeholder="Комментарий*"
+            validation="isNotEmpty"
+          }}
         </div>
       </div>
       <div class="popup-call__submit">
         <button class="btn btn--large btn--primary btn--w100">Отправить заявку</button>
       </div>
     </div>
-  </div>
+  </form>
 {{/ popups/_base}}

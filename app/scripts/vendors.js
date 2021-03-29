@@ -1,36 +1,19 @@
-// import 'react-app-polyfill/stable';
-// import 'react-app-polyfill/ie11';
-// import 'intersection-observer';
+import "regenerator-runtime/runtime";
 import './polyfills';
-// import 'html5shiv';
-// import 'picturefill';
 import lazySizes from 'lazysizes';
 import 'lazysizes/plugins/native-loading/ls.native-loading';
 import 'lazysizes/plugins/object-fit/ls.object-fit';
-// import svgPolyfill from 'svg4everybody';
-// import jquery from 'jquery';
 import swiper from 'swiper/swiper-bundle';
 import PhotoSwipe from 'photoswipe';
 import PhotoSwipeUI from 'photoswipe/dist/photoswipe-ui-default';
-// import imask from 'imask';
-// import datepicker from 'js-datepicker';
-// import { format as dateFormat } from 'date-fns';
-// import select2 from 'select2';
-// import PerfectScrollbar from 'perfect-scrollbar';
+import IMask from 'imask';
 
-// window.$ = window.jQuery = jquery;
-// window.svg4everybody = svgPolyfill;
 window.Swiper = swiper;
 
 window.PhotoSwipe = PhotoSwipe;
 window.PhotoSwipeUI = PhotoSwipeUI;
-// window.IMask = imask;
-// window.select2 = select2;
-// window.PerfectScrollbar = PerfectScrollbar;
-// window.datepicker = datepicker;
-// window.dateHelper = {
-//   format: dateFormat,
-// };
+window.IMask = IMask;
+
 
 lazySizes.cfg.lazyClass = 'lazy';
 lazySizes.cfg.srcAttr = 'data-original';

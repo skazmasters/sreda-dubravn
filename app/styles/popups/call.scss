@@ -69,10 +69,15 @@
   }
 
   &__input {
-    margin-top: 20px;
+    position: relative;
+    margin-top: 45px;
 
-    @include media(mobile) {
-      margin-top: 15px;
+    @include media(sm, down, true) {
+      margin-top: 35px;
+    }
+
+    @include media(mobileSmall) {
+      margin-top: 35px;
     }
 
     &:first-child {

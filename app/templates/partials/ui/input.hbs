@@ -1,8 +1,18 @@
-<div class="form-input {{#if icon}}form-input--icon{{#if icon-position}} form-input--icon-{{icon-position}}{{/if}}{{/if}} {{#if mod}}{{mod}}{{/if}}">
-  <input type="{{#if type}}{{type}}{{else}}text{{/if}}" placeholder="{{ placeholder }}"
-         class=" {{#if mask}}js-masked-input{{/if}} {{#if date}}js-datepicker{{/if}} {{#if
-                 numeric}}js-numeric-input{{/if}}"
-         {{#if maxlength}}maxlength="{{maxlength}}"{{/if}}  {{#if mask}}data-mask="{{mask}}"{{/if}}/>
+<div class="form-input {{#if icon}}form-input--icon{{#if
+  icon-position}} form-input--icon-{{icon-position}}{{/if}}{{/if}} {{#if mod}}{{mod}}{{/if}}">
+  <input type="{{#if type}}{{type}}{{else}}text{{/if}}"
+         placeholder="{{ placeholder }}"
+         class="{{#if mask}} js-masked-input{{/if}}{{#if date}} js-datepicker{{/if}}{{#if
+           numeric}} js-numeric-input{{/if}}"
+    {{#if id}} id="{{id}}"{{/if}}
+    {{#if name}} name="{{name}}"{{/if}}
+    {{#if inputmode}} inputmode="{{inputmode}}"{{/if}}
+    {{#if validation}} data-validation="{{validation}}"{{/if}}
+    {{#if maxlength}} maxlength="{{maxlength}}"{{/if}}
+    {{#if mask}} data-mask="{{mask}}"{{/if}}/>
+
+  <span class="form-input__bar"></span>
+  <label class="form-input__label" for="{{id}}">{{label}}</label>
   {{#if icon}}
     <i class="form-input__icon form-input__icon--{{icon}}"></i>
   {{/if}}
