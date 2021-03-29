@@ -11,6 +11,11 @@
     @include transition;
     border-radius: 50%;
 
+    @include media(mobile) {
+      width: 40px;
+      height: 40px;
+    }
+
     &:hover {
       color: $color-white;
       background-color: $color-green;
@@ -25,5 +30,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  &--between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }

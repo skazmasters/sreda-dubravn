@@ -13,7 +13,8 @@
     }
 
     @include media(mobile) {
-      grid-gap: 70px;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 60px 15px;
     }
   }
 
@@ -25,7 +26,12 @@
     border-radius: 10px;
 
     @include media(mobile) {
+      padding: 65px 15px 20px;
       box-shadow: 0 5px 15px rgba(40, 45, 76, 0.15);
+    }
+
+    @include media(mobileSmall) {
+      padding: 55px 10px 20px;
     }
   }
 
@@ -40,7 +46,7 @@
     text-align: center;
 
     @include media(mobile) {
-      font-size: 18px;
+      font-size: 14px;
       line-height: initial;
     }
   }
@@ -60,9 +66,15 @@
     transform: translateY(-50%) translateX(-50%);
 
     @include media(mobile) {
-      width: 75px;
-      height: 75px;
-      padding: 15px;
+      width: 65px;
+      height: 65px;
+      padding: 12px;
+    }
+
+    @include media(mobileSmall) {
+      width: 60px;
+      height: 60px;
+      padding: 10px;
     }
 
     img {

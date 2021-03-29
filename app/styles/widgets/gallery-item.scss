@@ -3,6 +3,11 @@
   align-items: center;
   height: 100%;
   margin: 0;
+  background: #CBCAB7;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.09);
+  border: 1px solid #CBCAB7;
+  border-radius: 10px;
+  overflow: hidden;
 
   @include media(mobile) {
     justify-content: center;
@@ -29,10 +34,49 @@
     display: block;
     width: auto;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    border-radius: 10px;
   }
 
   &__caption {
-    @extend .visually-hidden;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 145px;
+    min-height: 40px;
+    padding: 10px;
+    background: $color-primary-hover;
+    border: 1px solid lighten($color-primary, 15%);
+    border-radius: 30px;
+
+    @include media(mobile) {
+      bottom: 15px;
+      left: 15px;
+      min-height: 35px;
+      min-width: 125px;
+    }
+
+    .gallery-item__caption-text {
+      line-height: 1;
+      color: #fff;
+    }
+  }
+
+  &__caption-text {
+    display: block;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #0E201A;
+
+    @include media(mobile) {
+      font-size: 12px;
+    }
   }
 }
