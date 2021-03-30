@@ -1,14 +1,14 @@
 {{#> popups/_base title=title id=id}}
   <form class="popup-call js-form">
-    <input type="hidden" name="project_name" value="mk-vsnk.ru">
+    <input type="hidden" name="project_name" value="dubravnaya.com">
     <input type="hidden" name="admin_email" value="gimmethenick@gmail.com">
-    <input type="hidden" name="form_subject" value="Заявка на регистрацию. mk-vsnk.ru">
+    <input type="hidden" name="form_subject" value="Заявка на обратный звонок. Сайт: dubravnaya.com">
 
     <div class="popup-call__success" style="display: {{#if success}}block{{else}}none{{/if}}">
       <span class="popup-call__title">Звонок заказа</span>
       <p class="popup-call__text">Обычно мы перезваниваем в течение 10 минут</p>
       <div class="popup-call__submit">
-        <button class="btn btn--large btn--primary js-popup-close">Закрыть</button>
+        <button class="btn btn--large btn--primary js-form__success-btn js-popup-close" type="button">Закрыть</button>
       </div>
     </div>
     <div class="popup-call__failure" style="display: {{#if failure}}block{{else}}none{{/if}}">
@@ -17,7 +17,7 @@
         Но вы можете попробовать отправить еще раз,
         данные сохранились в форме.</p>
       <div class="popup-call__submit">
-        <button class="btn btn--large btn--primary">Вернуться к заявке</button>
+        <button class="btn btn--large btn--primary js-form__failure-btn" type="button">Вернуться к заявке</button>
       </div>
     </div>
     <div class="popup-call__normal" style="display: {{#if failure}}none{{else}}{{#if success}}none{{else}}block{{/if}}{{/if}}">
@@ -26,9 +26,9 @@
         <div class="popup-call__input">
           {{> ui/input
             id="callName"
-            name="name"
+            name="username"
             label="Фамилия и имя*"
-            placeholder="Фамилия и имя*"
+            placeholder="Фамилия и имя"
             validation="isNotEmpty"
           }}
         </div>
@@ -39,23 +39,23 @@
             label="Номер телефона*"
             type="tel"
             mask="+{7} (000) 000-00-00"
-            placeholder="+7 (***) ***-**-**"
+            placeholder="+7 (930) 909-33-80"
             inputmode="tel"
-            validation="isNotEmpty"
+            validation="isNotEmpty,isValidPhone"
           }}
         </div>
         <div class="popup-call__input">
           {{> ui/textarea
             id="callComments"
             name="comments"
-            label="Комментарий*"
-            placeholder="Комментарий*"
+            label="Ваш комментарий*"
+            placeholder="Ваш комментарий"
             validation="isNotEmpty"
           }}
         </div>
       </div>
       <div class="popup-call__submit">
-        <button class="btn btn--large btn--primary btn--w100">Отправить заявку</button>
+        <button class="btn btn--large btn--primary btn--w100" type="submit">Отправить заявку</button>
       </div>
     </div>
   </form>

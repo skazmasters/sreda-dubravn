@@ -112,20 +112,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const forms = document.querySelectorAll('.js-form');
   forms.forEach(form => {
+    const $stateSuccess = form.querySelector('.popup-call__success');
+    const $stateFailure = form.querySelector('.popup-call__failure');
+    const $stateNormal = form.querySelector('.popup-call__normal');
+    const $failureBtn = form.querySelector('.js-form__failure-btn');
+    const $successBtn = form.querySelector('.js-form__success-btn');
+
+    $failureBtn.addEventListener('click', (e) => {
+      e.preventDefault()
+
+      $stateFailure.style.display = 'none';
+      $stateNormal.style.display = 'block';
+      // form.reset(); // очищаем поля формы
+    })
+
+    $successBtn.addEventListener('click', (e) => {
+      e.preventDefault()
+
+      setTimeout(() => {
+        form.reset(); // очищаем поля формы
+        $stateSuccess.style.display = 'none';
+        $stateNormal.style.display = 'block';
+      }, 500)
+    })
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      Validation.validateForm(form);
+      // Validation.validateForm(form);
 
       if (Validation.isFormValid(form)) {
         const formData = new FormData(this);
+        // formData.append("comments", comments.value);
+
+        for(let [name, value] of formData) {
+          console.log(`${name} = ${value}`); // key1 = value1, then key2 = value2
+        }
 
         ajaxSend(formData)
           .then((response) => {
             console.log(response);
             form.reset(); // очищаем поля формы
+            $stateSuccess.style.display = 'block';
+            $stateNormal.style.display = 'none';
           })
-          .catch((err) => console.error(err))
+          .catch((err) => {
+            console.error(err)
+            $stateFailure.style.display = 'block';
+            $stateNormal.style.display = 'none';
+          })
       }
     });
   });

@@ -88,34 +88,23 @@ class Validation {
   }
 
   static isNotEmpty(input) {
-    if (!input.value) {
-      if (input.value === '') return `Вы не заполнили поле`;
-      return true;
-    }
+    if (!input.value) return `Поле не должно быть пустым`;
   }
 
   static isValidAge(input) {
     if (!input.value) {
       if (input.value.split('').length > 2) return `Допустимые значения от 0 до 99 лет`;
-      return true;
     }
   }
 
   static isValidEmail(input) {
     const regex = RegExp(/.+@.+\..+/i);
-    if (!regex.test(input.value.toLowerCase())) {
-      if (input.value === '') return `Вы не заполнили поле`;
-      return `Введите корректный e-mail`;
-    }
+    if (!regex.test(input.value.toLowerCase())) return `Введите корректный e-mail`;
   }
 
   static isValidPhone(input) {
-    console.log('phone');
-    const regex = RegExp(/^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/g);
-    if (!regex.test(input.value)) {
-      if (input.value === '') return `Введите номер телефона`;
-      return true;
-    }
+    const regex = RegExp(/^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/gm);
+    if (!regex.test(input.value)) return `Номер телефона введен неверно`;
   }
 
   static init() {
