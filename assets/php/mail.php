@@ -13,14 +13,14 @@ foreach ( $_POST as $key => $value ) {
   if ( $value != "" && $key != "project_name" && $key != "admin_email" && $key != "form_subject" ) {
     $message .= "
     " . ( ($c = !$c) ? '<tr>':'<tr style="background-color: #f8f8f8;">' ) . "
-      <td style='padding: 10px; border: #e2dddd 1px solid;'><b>$key</b></td>
+      <th style='padding: 10px; border: #e2dddd 1px solid; text-align: left;'>$key</th>
       <td style='padding: 10px; border: #e2dddd 1px solid;'>$value</td>
     </tr>
     ";
   }
 }
 
-$message = "<table style='width: 100%;'>$message</table>";
+$message = "<table style='width: 100%; border-collapse: collapse;'><tbody>$message</tbody></table>";
 
 function adopt($text) {
     return '=?UTF-8?B?'.Base64_encode($text).'?=';
@@ -28,8 +28,8 @@ function adopt($text) {
 
 $headers = "MIME-Version: 1.0" . PHP_EOL .
 "Content-Type: text/html; charset=utf-8" . PHP_EOL .
-'From: '.adopt($project_name).' <mail@mk-vsnk.ru>' . PHP_EOL .
-'Reply-To: mail@mk-vsnk.ru' . PHP_EOL;
+'From: '. adopt($project_name) . PHP_EOL .
+'Reply-To: '. adopt($admin_email) . ' ' .PHP_EOL;
 
 if (mail($admin_email, adopt($form_subject), $message, $headers )) {
     http_response_code(200);
